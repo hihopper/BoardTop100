@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavbarCtrl">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="home" ng-click="menuClick()">HOPPER</a>
+      <button class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse" collapse="isCollapsed">
+      <ul class="nav navbar-nav">
+        <li ng-class="{active: isActive('home')}" ><a ui-sref="home" ng-click="menuClick()">Home</a></li>
+        <li ng-class="{active: isActive('menu1')}" ><a ui-sref="menu1" ng-click="menuClick()">Menu1</a></li>
+        <li ng-class="{active: isActive('menu2')}" ><a ui-sref="menu2" ng-click="menuClick()">Menu2</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,81 @@
+<span us-spinner spinner-key="spinner-main" spinner-start-active="true"></span>
+
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="input-group">
+        <div class="input-group-btn">
+          <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-info dropdown-toggle" dropdown-toggle>
+              {{data.search.field}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="menu1_line">
+              <li ng-click="data.search.field = 'KEY'"><a>KEY</a></li>
+              <li ng-click="searchField('VALUE')"><a>VALUE</a></li>
+            </ul>
+          </div>
+        </div><!-- /btn-group -->
+        <input type="text" class="form-control" ng-model="data.search.value">
+        <span class="input-group-btn"><button class="btn btn-info" type="button" ng-click="search()">검색</button></span>
+      </div><!-- /input-group -->
+    </div>
+    <div class="col-sm-6">
+      <div class="pull-right">
+        <div class="btn btn-primary" ng-click="create()">생성</div>
+        &nbsp
+        <div class="btn-group" dropdown>
+          <button type="button" class="btn btn-warning">라인: {{data.limit}}</button>
+          <button type="button" class="btn btn-warning dropdown-toggle" dropdown-toggle>
+            <span class="caret"></span>
+            <span class="sr-only">Split button!</span>
+          </button>
+          <ul class="dropdown-menu" role="menu" id="menu1_line">
+            <li ng-click="lineLimit(10)"><a>10</a></li>
+            <li ng-click="lineLimit(20)"><a>20</a></li>
+            <li ng-click="lineLimit(30)"><a>30</a></li>
+            <li ng-click="lineLimit(40)"><a>40</a></li>
+            <li ng-click="lineLimit(50)"><a>50</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="alert alert-warning" ng-if="data.err">{{data.err}}</div>
+  <table class="table table-striped table-condensed">
+    <tr>
+      <th ng-click="sort('KEY')">KEY <span class="glyphicon" ng-class="data.sort.ngclass.KEY"></span></th>
+      <th ng-click="sort('VALUE')">VALUE <span class="glyphicon" ng-class="data.sort.ngclass.VALUE"></span></th>
+      <th>EDIT</th>
+    </tr>
+    <tr ng-repeat="row in data.rows">
+      <td>{{row.href}}</td>
+      <td>{{row.text}}</td>
+      <td>
+        <button class="btn btn-primary btn-xs" data-title="Edit" ng-click="update(row)">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button class="btn btn-danger btn-xs" data-title="Edit" ng-click="destroy(row)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </button>
+      </td>
+      <!--<td><a ng-click="destroy(row)"><span class="glyphicon glyphicon-trash"></span></a></td>-->
+    </tr>
+  </table>
+  <div class="clearfix"></div>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+  <pagination class="pageination-sm" max-size="data.maxSize" items-per-page="data.limit" total-items="data.total" ng-model="data.page" ng-change="search()"
+    previous-text="&lsaquo;&lsaquo;" next-text="&rsaquo;&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+      </div>
+    </div>
+</div>
+<!--
+  <pager total-items="data.total" ng-model="data.page" ng-change="search()"></pager>
+-->
+</div>

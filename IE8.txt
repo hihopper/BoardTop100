@@ -1,0 +1,4 @@
+1. bootstrap-css-only
+
+heroku에 deploy 할때 bootstrap에 dep가 걸려있는 jquery가 문제가 된다.
+jquery를 제거하기 위해 bower에 bootstrap 대신 bootstrap-css-only를 사용한다.
