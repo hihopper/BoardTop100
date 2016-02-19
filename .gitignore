@@ -7,4 +7,8 @@ dist
 /server/config/local.env.js
 /server/logs
 npm-debug.log
-crawler/bin
+
+*.class
+*.jar
+*.war
+*.ear
