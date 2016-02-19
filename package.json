@@ -1,5 +1,5 @@
 {
-  "name": "mean",
+  "name": "top100",
   "version": "1.0.0",
   "description": "0.0.1",
   "main": "server/app.js",
@@ -12,6 +12,7 @@
     "body-parser": "^1.14.2",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "express-handlebars": "^3.0.0",
     "express-logger": "0.0.3",
     "lodash": "^4.0.1",
     "moment": "^2.11.1",

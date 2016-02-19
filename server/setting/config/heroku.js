@@ -18,7 +18,8 @@ var config = {
   seedDB: true,
 
   mongo: {
-    uri: 'mongodb://hopper:aaaa1111@ds047325.mongolab.com:47325/heroku_l85p17kb',
+//    uri: 'mongodb://hopper:aaaa1111@ds047325.mongolab.com:47325/heroku_l85p17kb',
+    uri: 'mongodb://211.239.124.48/top100',
     options: {
       db: {
         safe: true

@@ -12,10 +12,11 @@ import com.mongodb.client.MongoDatabase;
 public class dbInsert {
 	public static void insertDB(ArrayList<Document> list) {
 		// or use a connection string
-		MongoClientURI connectionString = new MongoClientURI("mongodb://localhost:27017");
+		MongoClientURI connectionString = new MongoClientURI("mongodb://211.239.124.48:27017");
+//		MongoClientURI connectionString = new MongoClientURI("mongodb://localhost:27017");
 		MongoClient mongoClient = new MongoClient(connectionString);
 
-		MongoDatabase database = mongoClient.getDatabase("sms-dev");
+		MongoDatabase database = mongoClient.getDatabase("top100");
 
 		MongoCollection<Document> collection = database.getCollection("top100");
 		collection.deleteMany(new Document());

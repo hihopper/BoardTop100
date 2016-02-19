@@ -18,7 +18,7 @@ var config = {
   seedDB: true,
 
   mongo: {
-    uri: 'mongodb://localhost/sms-dev',
+    uri: 'mongodb://localhost/top100-dev',
     options: {
       db: {
         safe: true

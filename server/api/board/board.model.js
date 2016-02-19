@@ -3,15 +3,17 @@
 var mongoose = require('mongoose');
 var mongoosePaginate = require('mongoose-paginate');
 
-var samplesSchema = mongoose.Schema({
-  key: { type: String,  index: { unique: true }, require: true },
-  value: String
+var boardSchema = mongoose.Schema({
+  no: { type: Number,  index: { unique: true }, require: true },
+  site: String,
+  title: String,
+  href: String,
+  writer: String,
+  regDate: Date,
+  dateStr: String,
+  hit: Number
 });
 
+boardSchema.plugin(mongoosePaginate);
 
-
-
-
-samplesSchema.plugin(mongoosePaginate);
-
-module.exports = mongoose.model('top100', samplesSchema);
+module.exports = mongoose.model('top100', boardSchema);

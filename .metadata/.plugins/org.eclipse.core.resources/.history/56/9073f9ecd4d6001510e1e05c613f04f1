@@ -1,0 +1,12 @@
+package boardCrawler;
+
+
+public class BoardCrawler {
+
+	public static void main(String[] args) {
+		Crawler4Aggag.crwaling();
+		dbInsert.insertDB(list);
+
+    }
+
+}
