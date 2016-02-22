@@ -1,23 +1,39 @@
 package boardCrawler;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class BoardCrawler {
-	public static void test(String[] args) {
+    private static final Logger logger = LoggerFactory.getLogger("MAIN");
+	
+	public static void main2(String[] args) {
 		Crawler4Aggag.crwaling();
 	}
 	public static void main(String[] args) {
 		int i = 0;
 		while(true) {
-			if (i++ % 60 != 0) {
+			if (i++ % 300 != 0) {
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {}
 				continue;
 			}
 			ArrayList<org.bson.Document> list = Crawler4Aggag.crwaling();
-			dbInsert.insertDB(list);
+			if( !list.isEmpty() ) {
+				dbInsert.insertDB(list);
+			}
 		}
+	}
+	
+	public static String getStackTrace( Exception ex ) {
+		
+		StringWriter errors = new StringWriter();
+		ex.printStackTrace(new PrintWriter(errors));
+		return errors.toString();
 	}
 }

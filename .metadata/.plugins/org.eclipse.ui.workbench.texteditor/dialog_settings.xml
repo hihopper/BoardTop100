@@ -13,8 +13,10 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="war" key="selection"/>
+		<item value="System" key="selection"/>
 		<list key="findhistory">
+			<item value="System"/>
+			<item value="ISM"/>
 			<item value="war"/>
 		</list>
 		<list key="replacehistory">

@@ -4,22 +4,8 @@ module.exports = function(grunt) {
     'grunt-express-server',
     'grunt-contrib-watch',
     'grunt-wiredep',
-    'grunt-injector',
-    'grunt-contrib-clean',
-    'grunt-concurrent',
-    'grunt-svgmin',
-    'grunt-contrib-imagemin',
-    'grunt-autoprefixer',
-    'grunt-angular-templates',
-    'grunt-ng-annotate',
     'grunt-contrib-copy',
-    'grunt-google-cdn',
-    'grunt-usemin',
-    'grunt-contrib-concat',
-    'grunt-contrib-uglify',
-    'grunt-contrib-cssmin',
-    'grunt-filerev',
-    'grunt-rev'
+    'grunt-contrib-clean'
   ].forEach(function(task) {
     grunt.loadNpmTasks(task);
   });
@@ -59,7 +45,7 @@ module.exports = function(grunt) {
     watch: {
       express: {
         files: [
-          'server/**/*.{js,json}'
+          'server/**/*.{js,json,handlebars}'
         ],
         tasks: ['express:dev'],
         options: {

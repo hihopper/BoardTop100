@@ -1,22 +1,25 @@
 
 <div class="container">
-  <table class="table">
+  <table class="table table-condensed table-invert">
     <thead>
       <tr>
-        <th>순위</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>클릭수</th>
+        <th class="col-xs-1"></th>
+        <th class="col-xs-8">제목</th>
+        <th class="col-xs-2">클릭</th>
       </tr>
     </thead>
     <tbody>
     {{#each rows}}
       <tr>
-        <td>{{no}}</td>
-        <td><a href="{{{href}}}" target="_self">{{title}}</a></td>
-        <td>{{dateStr}}</td>
-        <td>{{writer}}</td>
-        <td>{{hit}}</td>
+        <td {{{info.color}}}>{{no}}</td>
+        <td><div class="row">
+          <div class="col-md-6"><a href="{{{href}}}" target="_self">{{title}}</a></div>
+          <div class="col-md-6"><small>[{{info.name}}] {{dateStr}}</small></div>
+        </div></td>
+        <td><div class="row">
+          <div class="col-md-6">{{#number}}{{hit}}{{/number}}</div>
+          <div class="col-md-6"><small>{{writer}}</small></div>
+        </div></td>
       </tr>
     {{/each}}
     </tbody>

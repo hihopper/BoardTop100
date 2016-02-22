@@ -13,10 +13,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class Crawler4Aggag {
 	
+    private static final Logger logger = LoggerFactory.getLogger("MAIN");
 
 	public static ArrayList<org.bson.Document> crwaling() {
 
@@ -27,8 +30,7 @@ public class Crawler4Aggag {
             HttpGet httpGet = new HttpGet("http://aagag.com/mirror/");
             CloseableHttpResponse response = httpclient.execute(httpGet);
             try {
-                System.out.println(response.getStatusLine());
-                
+                logger.info("STATUS: " + response.getStatusLine());
                 
                 HttpEntity entity1 = response.getEntity();
     			Document doc = Jsoup.parse(entity1.getContent(), "utf-8", "");
@@ -44,11 +46,16 @@ public class Crawler4Aggag {
     				}
 				
     				els2.children().remove();
-					System.out.println(els2.attr("href") + " ===> " + els2.text());
+    				logger.debug(els2.attr("href") + " ===> " + els2.text());
 					row	.append("no", ++no)
 						.append("href", els2.attr("href"))
 						.append("title", els2.text());
 				
+
+    				els2 = e.select("td.rank").first();
+    				if( els2 != null) {
+    					row.append("site", els2.className().replaceFirst("^rank bc_", ""));
+    				}
     				
     				els2 = e.select("a").last();
     				if( els2 != null) {
@@ -75,7 +82,8 @@ public class Crawler4Aggag {
             }
         } catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			logger.info(BoardCrawler.getStackTrace(e1));
+
 		} finally {
             try {
 				httpclient.close();
